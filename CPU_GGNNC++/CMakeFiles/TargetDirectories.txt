@@ -1,0 +1,6 @@
+/home/cocoa/GNN/CPU_GGNNC++/CMakeFiles/rebuild_cache.dir
+/home/cocoa/GNN/CPU_GGNNC++/CMakeFiles/ggnn.dir
+/home/cocoa/GNN/CPU_GGNNC++/CMakeFiles/edit_cache.dir
+/home/cocoa/GNN/CPU_GGNNC++/Matrix/CMakeFiles/rebuild_cache.dir
+/home/cocoa/GNN/CPU_GGNNC++/Matrix/CMakeFiles/matrix.dir
+/home/cocoa/GNN/CPU_GGNNC++/Matrix/CMakeFiles/edit_cache.dir

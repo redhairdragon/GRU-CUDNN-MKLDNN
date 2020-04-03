@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.cpp
+matrix.hpp
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+cassert
+-
+cmath
+-
+memory
+-
+sstream
+-
+iostream
+-
+iomanip
+-
+cblas.h
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/cblas.h
+
+/usr/local/blas/CBLAS/include/cblas.h
+stddef.h
+-
+

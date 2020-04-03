@@ -1,0 +1,907 @@
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_fb8d6/fast && /usr/bin/make -f CMakeFiles/cmTC_fb8d6.dir/build.make CMakeFiles/cmTC_fb8d6.dir/build
+make[1]: 进入目录“/home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_fb8d6.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_fb8d6.dir/src.cxx.o -c /home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_fb8d6
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fb8d6.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_fb8d6.dir/src.cxx.o  -o cmTC_fb8d6 
+/usr/bin/ld: CMakeFiles/cmTC_fb8d6.dir/src.cxx.o: in function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.cxx:(.text+0x5b): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_fb8d6.dir/build.make:87：cmTC_fb8d6] 错误 1
+make[1]: 离开目录“/home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_fb8d6/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_d7c52/fast && /usr/bin/make -f CMakeFiles/cmTC_d7c52.dir/build.make CMakeFiles/cmTC_d7c52.dir/build
+make[1]: 进入目录“/home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_d7c52.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d7c52.dir/CheckFunctionExists.cxx.o -c /home/cocoa/docker/GGNNC++/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_d7c52
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d7c52.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_d7c52.dir/CheckFunctionExists.cxx.o  -o cmTC_d7c52  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_d7c52.dir/build.make:87：cmTC_d7c52] 错误 1
+make[1]: 离开目录“/home/cocoa/docker/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:121：cmTC_d7c52/fast] 错误 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_67431/fast"
+/usr/bin/make -f CMakeFiles/cmTC_67431.dir/build.make CMakeFiles/cmTC_67431.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_67431.dir/CheckSymbolExists.cxx.o
+/usr/bin/c++     -o CMakeFiles/cmTC_67431.dir/CheckSymbolExists.cxx.o -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx
+Linking CXX executable cmTC_67431
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_67431.dir/link.txt --verbose=1
+/usr/bin/c++       CMakeFiles/cmTC_67431.dir/CheckSymbolExists.cxx.o  -o cmTC_67431 
+CMakeFiles/cmTC_67431.dir/CheckSymbolExists.cxx.o: In function `main':
+CheckSymbolExists.cxx:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_67431.dir/build.make:97: recipe for target 'cmTC_67431' failed
+make[1]: *** [cmTC_67431] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_67431/fast' failed
+make: *** [cmTC_67431/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.cxx:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_ca5f2/fast"
+/usr/bin/make -f CMakeFiles/cmTC_ca5f2.dir/build.make CMakeFiles/cmTC_ca5f2.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_ca5f2.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_ca5f2.dir/CheckFunctionExists.cxx.o -c /root/GGNNC++/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_ca5f2
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ca5f2.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_ca5f2.dir/CheckFunctionExists.cxx.o  -o cmTC_ca5f2 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_ca5f2.dir/build.make:97: recipe for target 'cmTC_ca5f2' failed
+make[1]: *** [cmTC_ca5f2] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_ca5f2/fast' failed
+make: *** [cmTC_ca5f2/fast] Error 2
+
+
+Performing C++ SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_44b3d/fast && /usr/bin/make -f CMakeFiles/cmTC_44b3d.dir/build.make CMakeFiles/cmTC_44b3d.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_44b3d.dir/src.cxx.o
+/usr/bin/c++    -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_44b3d.dir/src.cxx.o -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp/src.cxx
+Linking CXX executable cmTC_44b3d
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_44b3d.dir/link.txt --verbose=1
+/usr/bin/c++   -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_44b3d.dir/src.cxx.o  -o cmTC_44b3d 
+/usr/bin/ld: CMakeFiles/cmTC_44b3d.dir/src.cxx.o: in function `main':
+src.cxx:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.cxx:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.cxx:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.cxx:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_44b3d.dir/build.make:104：cmTC_44b3d] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_44b3d/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_0c76b/fast && /usr/bin/make -f CMakeFiles/cmTC_0c76b.dir/build.make CMakeFiles/cmTC_0c76b.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building CXX object CMakeFiles/cmTC_0c76b.dir/CheckFunctionExists.cxx.o
+/usr/bin/c++    -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_0c76b.dir/CheckFunctionExists.cxx.o -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CheckLibraryExists/CheckFunctionExists.cxx
+Linking CXX executable cmTC_0c76b
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_0c76b.dir/link.txt --verbose=1
+/usr/bin/c++   -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_0c76b.dir/CheckFunctionExists.cxx.o  -o cmTC_0c76b  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_0c76b.dir/build.make:104：cmTC_0c76b] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_0c76b/fast] 错误 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_69f08/fast"
+/usr/bin/make -f CMakeFiles/cmTC_69f08.dir/build.make CMakeFiles/cmTC_69f08.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_69f08.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_69f08.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_69f08
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_69f08.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_69f08.dir/CheckSymbolExists.c.o  -o cmTC_69f08 
+CMakeFiles/cmTC_69f08.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_69f08.dir/build.make:97: recipe for target 'cmTC_69f08' failed
+make[1]: *** [cmTC_69f08] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_69f08/fast' failed
+make: *** [cmTC_69f08/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9b234/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9b234.dir/build.make CMakeFiles/cmTC_9b234.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9b234.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9b234.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9b234
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9b234.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9b234.dir/CheckFunctionExists.c.o  -o cmTC_9b234 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9b234.dir/build.make:97: recipe for target 'cmTC_9b234' failed
+make[1]: *** [cmTC_9b234] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9b234/fast' failed
+make: *** [cmTC_9b234/fast] Error 2
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_db191/fast && /usr/bin/make -f CMakeFiles/cmTC_db191.dir/build.make CMakeFiles/cmTC_db191.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_db191.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_db191.dir/src.c.o   -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_db191
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_db191.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_db191.dir/src.c.o  -o cmTC_db191 
+/usr/bin/ld: CMakeFiles/cmTC_db191.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_db191.dir/build.make:104：cmTC_db191] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_db191/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b03ad/fast && /usr/bin/make -f CMakeFiles/cmTC_b03ad.dir/build.make CMakeFiles/cmTC_b03ad.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b03ad.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_b03ad.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_b03ad
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b03ad.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_b03ad.dir/CheckFunctionExists.c.o  -o cmTC_b03ad  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_b03ad.dir/build.make:104：cmTC_b03ad] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_b03ad/fast] 错误 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_a44d7/fast"
+/usr/bin/make -f CMakeFiles/cmTC_a44d7.dir/build.make CMakeFiles/cmTC_a44d7.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_a44d7.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_a44d7.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_a44d7
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_a44d7.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_a44d7.dir/CheckSymbolExists.c.o  -o cmTC_a44d7 
+CMakeFiles/cmTC_a44d7.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_a44d7.dir/build.make:97: recipe for target 'cmTC_a44d7' failed
+make[1]: *** [cmTC_a44d7] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_a44d7/fast' failed
+make: *** [cmTC_a44d7/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_9cc25/fast"
+/usr/bin/make -f CMakeFiles/cmTC_9cc25.dir/build.make CMakeFiles/cmTC_9cc25.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_9cc25.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_9cc25.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_9cc25
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_9cc25.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_9cc25.dir/CheckFunctionExists.c.o  -o cmTC_9cc25 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_9cc25.dir/build.make:97: recipe for target 'cmTC_9cc25' failed
+make[1]: *** [cmTC_9cc25] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_9cc25/fast' failed
+make: *** [cmTC_9cc25/fast] Error 2
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_11f81/fast && /usr/bin/make -f CMakeFiles/cmTC_11f81.dir/build.make CMakeFiles/cmTC_11f81.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_11f81.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_11f81.dir/src.c.o   -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_11f81
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_11f81.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_11f81.dir/src.c.o  -o cmTC_11f81 
+/usr/bin/ld: CMakeFiles/cmTC_11f81.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_11f81.dir/build.make:104：cmTC_11f81] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_11f81/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_de38f/fast && /usr/bin/make -f CMakeFiles/cmTC_de38f.dir/build.make CMakeFiles/cmTC_de38f.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_de38f.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_de38f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_de38f
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_de38f.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_de38f.dir/CheckFunctionExists.c.o  -o cmTC_de38f  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_de38f.dir/build.make:104：cmTC_de38f] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_de38f/fast] 错误 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5d69c/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5d69c.dir/build.make CMakeFiles/cmTC_5d69c.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5d69c.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_5d69c.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_5d69c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5d69c.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_5d69c.dir/CheckSymbolExists.c.o  -o cmTC_5d69c 
+CMakeFiles/cmTC_5d69c.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5d69c.dir/build.make:97: recipe for target 'cmTC_5d69c' failed
+make[1]: *** [cmTC_5d69c] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5d69c/fast' failed
+make: *** [cmTC_5d69c/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_86a91/fast"
+/usr/bin/make -f CMakeFiles/cmTC_86a91.dir/build.make CMakeFiles/cmTC_86a91.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_86a91.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_86a91.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_86a91
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_86a91.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_86a91.dir/CheckFunctionExists.c.o  -o cmTC_86a91 -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_86a91.dir/build.make:97: recipe for target 'cmTC_86a91' failed
+make[1]: *** [cmTC_86a91] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_86a91/fast' failed
+make: *** [cmTC_86a91/fast] Error 2
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_ad7e8/fast && /usr/bin/make -f CMakeFiles/cmTC_ad7e8.dir/build.make CMakeFiles/cmTC_ad7e8.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_ad7e8.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_ad7e8.dir/src.c.o   -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_ad7e8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_ad7e8.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_ad7e8.dir/src.c.o  -o cmTC_ad7e8 
+/usr/bin/ld: CMakeFiles/cmTC_ad7e8.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_ad7e8.dir/build.make:104：cmTC_ad7e8] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_ad7e8/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cdf07/fast && /usr/bin/make -f CMakeFiles/cmTC_cdf07.dir/build.make CMakeFiles/cmTC_cdf07.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_cdf07.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_cdf07.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_cdf07
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cdf07.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_cdf07.dir/CheckFunctionExists.c.o  -o cmTC_cdf07  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_cdf07.dir/build.make:104：cmTC_cdf07] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_cdf07/fast] 错误 2
+
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_78ebe/fast"
+/usr/bin/make -f CMakeFiles/cmTC_78ebe.dir/build.make CMakeFiles/cmTC_78ebe.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_78ebe.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_78ebe.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_78ebe
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_78ebe.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_78ebe.dir/CheckSymbolExists.c.o  -o cmTC_78ebe 
+CMakeFiles/cmTC_78ebe.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_78ebe.dir/build.make:97: recipe for target 'cmTC_78ebe' failed
+make[1]: *** [cmTC_78ebe] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_78ebe/fast' failed
+make: *** [cmTC_78ebe/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_5397e/fast"
+/usr/bin/make -f CMakeFiles/cmTC_5397e.dir/build.make CMakeFiles/cmTC_5397e.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5397e.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_5397e.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_5397e
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_5397e.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_5397e.dir/CheckFunctionExists.c.o  -o cmTC_5397e -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_5397e.dir/build.make:97: recipe for target 'cmTC_5397e' failed
+make[1]: *** [cmTC_5397e] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_5397e/fast' failed
+make: *** [cmTC_5397e/fast] Error 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/local/cuda-10.1/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: /usr/local/cuda-10.1/bin/nvcc 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_cdba3/fast"
+/usr/bin/make -f CMakeFiles/cmTC_cdba3.dir/build.make CMakeFiles/cmTC_cdba3.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cdba3.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_cdba3.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_cdba3
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cdba3.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_cdba3.dir/CheckSymbolExists.c.o  -o cmTC_cdba3 
+CMakeFiles/cmTC_cdba3.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_cdba3.dir/build.make:97: recipe for target 'cmTC_cdba3' failed
+make[1]: *** [cmTC_cdba3] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_cdba3/fast' failed
+make: *** [cmTC_cdba3/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_d33dc/fast"
+/usr/bin/make -f CMakeFiles/cmTC_d33dc.dir/build.make CMakeFiles/cmTC_d33dc.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_d33dc.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_d33dc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_d33dc
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_d33dc.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_d33dc.dir/CheckFunctionExists.c.o  -o cmTC_d33dc -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_d33dc.dir/build.make:97: recipe for target 'cmTC_d33dc' failed
+make[1]: *** [cmTC_d33dc] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_d33dc/fast' failed
+make: *** [cmTC_d33dc/fast] Error 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Determining if the pthread_create exist failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_3c5af/fast"
+/usr/bin/make -f CMakeFiles/cmTC_3c5af.dir/build.make CMakeFiles/cmTC_3c5af.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_3c5af.dir/CheckSymbolExists.c.o
+/usr/bin/cc   -fPIC    -o CMakeFiles/cmTC_3c5af.dir/CheckSymbolExists.c.o   -c /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c
+Linking C executable cmTC_3c5af
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_3c5af.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC     CMakeFiles/cmTC_3c5af.dir/CheckSymbolExists.c.o  -o cmTC_3c5af 
+CMakeFiles/cmTC_3c5af.dir/CheckSymbolExists.c.o: In function `main':
+CheckSymbolExists.c:(.text+0x1b): undefined reference to `pthread_create'
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_3c5af.dir/build.make:97: recipe for target 'cmTC_3c5af' failed
+make[1]: *** [cmTC_3c5af] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_3c5af/fast' failed
+make: *** [cmTC_3c5af/fast] Error 2
+
+File /root/GGNNC++/CMakeFiles/CMakeTmp/CheckSymbolExists.c:
+/* */
+#include <pthread.h>
+
+int main(int argc, char** argv)
+{
+  (void)argv;
+#ifndef pthread_create
+  return ((int*)(&pthread_create))[argc];
+#else
+  (void)argc;
+  return 0;
+#endif
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /root/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command:"/usr/bin/make" "cmTC_c462a/fast"
+/usr/bin/make -f CMakeFiles/cmTC_c462a.dir/build.make CMakeFiles/cmTC_c462a.dir/build
+make[1]: Entering directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_c462a.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_c462a.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.10/Modules/CheckFunctionExists.c
+Linking C executable cmTC_c462a
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_c462a.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_c462a.dir/CheckFunctionExists.c.o  -o cmTC_c462a -lpthreads 
+/usr/bin/ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+CMakeFiles/cmTC_c462a.dir/build.make:97: recipe for target 'cmTC_c462a' failed
+make[1]: *** [cmTC_c462a] Error 1
+make[1]: Leaving directory '/root/GGNNC++/CMakeFiles/CMakeTmp'
+Makefile:126: recipe for target 'cmTC_c462a/fast' failed
+make: *** [cmTC_c462a/fast] Error 2
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Compiling the CUDA compiler identification source file "CMakeCUDACompilerId.cu" failed.
+Compiler: CMAKE_CUDA_COMPILER-NOTFOUND 
+Build flags: 
+Id flags:  -v;--keep;--keep-dir;tmp
+
+The output was:
+No such file or directory
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_b560c/fast && /usr/bin/make -f CMakeFiles/cmTC_b560c.dir/build.make CMakeFiles/cmTC_b560c.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_b560c.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_b560c.dir/src.c.o   -c /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_b560c
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_b560c.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_b560c.dir/src.c.o  -o cmTC_b560c 
+/usr/bin/ld: CMakeFiles/cmTC_b560c.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_b560c.dir/build.make:104：cmTC_b560c] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_b560c/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_91a84/fast && /usr/bin/make -f CMakeFiles/cmTC_91a84.dir/build.make CMakeFiles/cmTC_91a84.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_91a84.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_91a84.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_91a84
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_91a84.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_91a84.dir/CheckFunctionExists.c.o  -o cmTC_91a84  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_91a84.dir/build.make:104：cmTC_91a84] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_91a84/fast] 错误 2
+
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Determining if the C compiler works failed with the following output:
+
+
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the C compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Checking whether the CXX compiler is IAR using "" did not match "IAR .+ Compiler":
+Determining if the C compiler works failed with the following output:
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_cf1fb/fast && /usr/bin/make -f CMakeFiles/cmTC_cf1fb.dir/build.make CMakeFiles/cmTC_cf1fb.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_cf1fb.dir/src.c.o
+/usr/bin/cc   -fPIC -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_cf1fb.dir/src.c.o   -c /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_cf1fb
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cf1fb.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_cf1fb.dir/src.c.o  -o cmTC_cf1fb 
+/usr/bin/ld: CMakeFiles/cmTC_cf1fb.dir/src.c.o: in function `main':
+src.c:(.text+0x3e): undefined reference to `pthread_create'
+/usr/bin/ld: src.c:(.text+0x4a): undefined reference to `pthread_detach'
+/usr/bin/ld: src.c:(.text+0x56): undefined reference to `pthread_cancel'
+/usr/bin/ld: src.c:(.text+0x67): undefined reference to `pthread_join'
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_cf1fb.dir/build.make:104：cmTC_cf1fb] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_cf1fb/fast] 错误 2
+
+
+Source file was:
+#include <pthread.h>
+
+void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/make cmTC_35ed8/fast && /usr/bin/make -f CMakeFiles/cmTC_35ed8.dir/build.make CMakeFiles/cmTC_35ed8.dir/build
+make[1]: 进入目录“/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp”
+Building C object CMakeFiles/cmTC_35ed8.dir/CheckFunctionExists.c.o
+/usr/bin/cc   -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_35ed8.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.17/Modules/CheckFunctionExists.c
+Linking C executable cmTC_35ed8
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_35ed8.dir/link.txt --verbose=1
+/usr/bin/cc -fPIC -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_35ed8.dir/CheckFunctionExists.c.o  -o cmTC_35ed8  -lpthreads 
+/usr/bin/ld: 找不到 -lpthreads
+collect2: 错误：ld 返回 1
+make[1]: *** [CMakeFiles/cmTC_35ed8.dir/build.make:104：cmTC_35ed8] 错误 1
+make[1]: 离开目录“/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/CMakeTmp”
+make: *** [Makefile:138：cmTC_35ed8/fast] 错误 2
+
+
+

@@ -1,0 +1,1 @@
+/usr/bin/c++     CMakeFiles/ggnn.dir/main.cpp.o  -o ggnn  -Wl,-rpath,/home/cocoa/GNN/CPU_GGNNC++/Matrix:/usr/local/mkldnn/lib Matrix/libmatrix.so /usr/local/mkldnn/lib/libdnnl.so /usr/local/blas/OpenBLAS/lib/libopenblas.a /usr/local/blas/CBLAS/lib/cblas_LINUX.a -lpthread 

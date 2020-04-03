@@ -1,0 +1,9 @@
+/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/rebuild_cache.dir
+/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/ggnn.dir
+/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/edit_cache.dir
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/CMakeFiles/rebuild_cache.dir
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/CMakeFiles/matrix.dir
+/home/cocoa/GNN/GPU_GGNNC++/Matrix/CMakeFiles/edit_cache.dir
+/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/CMakeFiles/rebuild_cache.dir
+/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/CMakeFiles/CuMatrix.dir
+/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/CMakeFiles/edit_cache.dir
