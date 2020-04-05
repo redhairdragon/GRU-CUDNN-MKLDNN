@@ -1,4 +1,4 @@
-# Install script for directory: /home/cocoa/GNN/CPU_GGNNC++/Matrix
+# Install script for directory: /home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

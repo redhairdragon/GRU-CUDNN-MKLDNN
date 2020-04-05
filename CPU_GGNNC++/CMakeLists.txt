@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 11)
 find_package(Threads REQUIRED)
 
 
-find_library(DNNL_LIB libdnnl.so HINTS /usr/local/mkldnn/lib/)
-set(DNNL_INC /usr/local/mkldnn/include/)
+find_library(DNNL_LIB libdnnl.so HINTS /usr/local/oneDNN/lib/)
+set(DNNL_INC /usr/local/oneDNN/include/)
 include_directories(${DNNL_INC})
 
 

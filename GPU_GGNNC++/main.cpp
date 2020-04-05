@@ -133,9 +133,8 @@ int main() {
     cudaMalloc((void **)&w, weightsSize);
     cudaMalloc((void **)&dw, weightsSize);
 
-    // y: output which is not used for our case. need to be initialized
-    // anyway
-    // dy: used for back-prop
+    // y,dy: output which is not used for our case. need to be initialized
+    // anyway (required by function)
     Matrix y(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
     Matrix dy(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
     CuMatrix y_cuda(y, handle);

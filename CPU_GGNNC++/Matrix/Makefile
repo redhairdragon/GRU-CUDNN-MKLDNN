@@ -65,10 +65,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GNN/CPU_GGNNC++
+CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/CPU_GGNNC++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GNN/CPU_GGNNC++
+CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/CPU_GGNNC++
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -97,14 +97,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/CPU_GGNNC++/CMakeFiles /home/cocoa/GNN/CPU_GGNNC++/Matrix/CMakeFiles/progress.marks
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/CPU_GGNNC++/CMakeFiles 0
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/CPU_GGNNC++/CMakeFiles /home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix/CMakeFiles/progress.marks
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/CPU_GGNNC++/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/clean
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/clean
 .PHONY : clean
 
 # The main clean target
@@ -114,22 +114,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/preinstall
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/preinstall
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 Matrix/CMakeFiles/matrix.dir/rule:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/CMakeFiles/matrix.dir/rule
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f CMakeFiles/Makefile2 Matrix/CMakeFiles/matrix.dir/rule
 .PHONY : Matrix/CMakeFiles/matrix.dir/rule
 
 # Convenience name for target.
@@ -139,7 +139,7 @@ matrix: Matrix/CMakeFiles/matrix.dir/rule
 
 # fast build rule for target.
 matrix/fast:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/build
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/build
 .PHONY : matrix/fast
 
 matrix.o: matrix.cpp.o
@@ -148,7 +148,7 @@ matrix.o: matrix.cpp.o
 
 # target to build an object file
 matrix.cpp.o:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.o
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.o
 .PHONY : matrix.cpp.o
 
 matrix.i: matrix.cpp.i
@@ -157,7 +157,7 @@ matrix.i: matrix.cpp.i
 
 # target to preprocess a source file
 matrix.cpp.i:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.i
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.i
 .PHONY : matrix.cpp.i
 
 matrix.s: matrix.cpp.s
@@ -166,7 +166,7 @@ matrix.s: matrix.cpp.s
 
 # target to generate assembly for a file
 matrix.cpp.s:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.s
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/matrix.cpp.s
 .PHONY : matrix.cpp.s
 
 # Help Target
@@ -192,6 +192,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cocoa/GNN/CPU_GGNNC++ && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cocoa/GNN/GRU/CPU_GGNNC++ && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

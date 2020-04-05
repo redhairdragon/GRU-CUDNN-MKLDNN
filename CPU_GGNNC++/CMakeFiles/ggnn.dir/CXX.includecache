@@ -6,7 +6,7 @@
 
 #IncludeRegexTransform: 
 
-/home/cocoa/GNN/CPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix/matrix.hpp
 cassert
 -
 cmath
@@ -20,11 +20,13 @@ iostream
 iomanip
 -
 cblas.h
-/home/cocoa/GNN/CPU_GGNNC++/Matrix/cblas.h
+/home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix/cblas.h
 
-/home/cocoa/GNN/CPU_GGNNC++/constants.h
+/home/cocoa/GNN/GRU/CPU_GGNNC++/constants.h
 
-/home/cocoa/GNN/CPU_GGNNC++/main.cpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/main.cpp
+algorithm
+-
 cmath
 -
 cstring
@@ -35,34 +37,32 @@ numeric
 -
 string
 -
-algorithm
--
 vector
 -
 Matrix/matrix.hpp
-/home/cocoa/GNN/CPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix/matrix.hpp
 constants.h
-/home/cocoa/GNN/CPU_GGNNC++/constants.h
+/home/cocoa/GNN/GRU/CPU_GGNNC++/constants.h
 dnnl.hpp
-/home/cocoa/GNN/CPU_GGNNC++/dnnl.hpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/dnnl.hpp
 
 /usr/local/blas/CBLAS/include/cblas.h
 stddef.h
 -
 
-/usr/local/mkldnn/include/dnnl.h
+/usr/local/oneDNN/include/dnnl.h
 dnnl_config.h
-/usr/local/mkldnn/include/dnnl_config.h
+/usr/local/oneDNN/include/dnnl_config.h
 dnnl_types.h
-/usr/local/mkldnn/include/dnnl_types.h
+/usr/local/oneDNN/include/dnnl_types.h
 dnnl_version.h
-/usr/local/mkldnn/include/dnnl_version.h
+/usr/local/oneDNN/include/dnnl_version.h
 CL/cl.h
 -
 
-/usr/local/mkldnn/include/dnnl.hpp
+/usr/local/oneDNN/include/dnnl.hpp
 dnnl_config.h
-/usr/local/mkldnn/include/dnnl_config.h
+/usr/local/oneDNN/include/dnnl_config.h
 algorithm
 -
 cstdlib
@@ -78,21 +78,27 @@ vector
 unordered_map
 -
 dnnl.h
-/usr/local/mkldnn/include/dnnl.h
+/usr/local/oneDNN/include/dnnl.h
+dnnl_threadpool_iface.hpp
+/usr/local/oneDNN/include/dnnl_threadpool_iface.hpp
 CL/cl.h
 -
 cstdio
 -
 
-/usr/local/mkldnn/include/dnnl_config.h
+/usr/local/oneDNN/include/dnnl_config.h
 dnnl_types.h
-/usr/local/mkldnn/include/dnnl_types.h
+/usr/local/oneDNN/include/dnnl_types.h
 
-/usr/local/mkldnn/include/dnnl_types.h
+/usr/local/oneDNN/include/dnnl_threadpool_iface.hpp
+functional
+-
+
+/usr/local/oneDNN/include/dnnl_types.h
 stddef.h
 -
 stdint.h
 -
 
-/usr/local/mkldnn/include/dnnl_version.h
+/usr/local/oneDNN/include/dnnl_version.h
 

@@ -5,9 +5,10 @@ CMakeFiles/ggnn.dir/main.cpp.o: Matrix/matrix.hpp
 CMakeFiles/ggnn.dir/main.cpp.o: constants.h
 CMakeFiles/ggnn.dir/main.cpp.o: main.cpp
 CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/blas/CBLAS/include/cblas.h
-CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/mkldnn/include/dnnl.h
-CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/mkldnn/include/dnnl.hpp
-CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/mkldnn/include/dnnl_config.h
-CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/mkldnn/include/dnnl_types.h
-CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/mkldnn/include/dnnl_version.h
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl.h
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl.hpp
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl_config.h
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl_threadpool_iface.hpp
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl_types.h
+CMakeFiles/ggnn.dir/main.cpp.o: /usr/local/oneDNN/include/dnnl_version.h
 

@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=gnu++11
 
 CXX_DEFINES = -Dmatrix_EXPORTS
 
-CXX_INCLUDES = -I/usr/local/mkldnn/include -I/usr/local/blas/CBLAS/include 
+CXX_INCLUDES = -I/usr/local/oneDNN/include -I/usr/local/blas/CBLAS/include 
 
