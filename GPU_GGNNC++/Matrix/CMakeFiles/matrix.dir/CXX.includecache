@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.cpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.cpp
 matrix.hpp
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.hpp
 
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.hpp
 cassert
 -
 cmath
@@ -24,7 +24,7 @@ iostream
 iomanip
 -
 cblas.h
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/cblas.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/cblas.h
 
 /usr/local/blas/CBLAS/include/cblas.h
 stddef.h

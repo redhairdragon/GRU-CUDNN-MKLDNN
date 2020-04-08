@@ -78,8 +78,8 @@ int main() {
     for (int i = 0; i < SEQ_LEN; i++) {
         cudnnCreateTensorDescriptor(&xDesc[i]);
         cudnnCreateTensorDescriptor(&dxDesc[i]);
-        int dimA[3] = {CHUNK_SIZE, FEAT_DIM, 1};
-        int strideA[3] = {FEAT_DIM, 1, 1};
+        int dimA[3] = {CHUNK_SIZE, 2 * FEAT_DIM, 1};
+        int strideA[3] = {2 * FEAT_DIM, 1, 1};
         cudnnSetTensorNdDescriptor(xDesc[i], CUDNN_DATA_FLOAT, 3, dimA,
                                    strideA);
         cudnnSetTensorNdDescriptor(dxDesc[i], CUDNN_DATA_FLOAT, 3, dimA,
@@ -198,6 +198,7 @@ int main() {
             int filterDimA[3];
             cudnnGetFilterNdDescriptor(linLayerMatDesc, 3, &dataType, &format,
                                        &nbDims, filterDimA);
+            cout<<filterDimA[0] <<" " <<filterDimA[1]<<" "<<filterDimA[2]<<endl; 
 
             //****Here it should copy weights into GPU memory.
             // initGPUData(

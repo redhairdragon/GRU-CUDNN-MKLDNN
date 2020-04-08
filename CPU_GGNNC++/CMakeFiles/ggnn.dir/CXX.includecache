@@ -24,6 +24,30 @@ cblas.h
 
 /home/cocoa/GNN/GRU/CPU_GGNNC++/constants.h
 
+/home/cocoa/GNN/GRU/CPU_GGNNC++/example_utils.hpp
+algorithm
+-
+cassert
+-
+functional
+-
+iostream
+-
+numeric
+-
+stdexcept
+-
+stdlib.h
+-
+string
+-
+initializer_list
+-
+dnnl.hpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/dnnl.hpp
+dnnl_debug.h
+/home/cocoa/GNN/GRU/CPU_GGNNC++/dnnl_debug.h
+
 /home/cocoa/GNN/GRU/CPU_GGNNC++/main.cpp
 algorithm
 -
@@ -45,6 +69,8 @@ constants.h
 /home/cocoa/GNN/GRU/CPU_GGNNC++/constants.h
 dnnl.hpp
 /home/cocoa/GNN/GRU/CPU_GGNNC++/dnnl.hpp
+example_utils.hpp
+/home/cocoa/GNN/GRU/CPU_GGNNC++/example_utils.hpp
 
 /usr/local/blas/CBLAS/include/cblas.h
 stddef.h
@@ -86,6 +112,12 @@ CL/cl.h
 cstdio
 -
 
+/usr/local/oneDNN/include/dnnl_config.h
+dnnl_types.h
+/usr/local/oneDNN/include/dnnl_types.h
+
+/usr/local/oneDNN/include/dnnl_debug.h
+dnnl_config.h
 /usr/local/oneDNN/include/dnnl_config.h
 dnnl_types.h
 /usr/local/oneDNN/include/dnnl_types.h

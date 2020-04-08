@@ -1,4 +1,4 @@
-# Install script for directory: /home/cocoa/GNN/GPU_GGNNC++/GPU-Computation
+# Install script for directory: /home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cocoa/GNN/GPU_GGNNC++/main.cpp" "/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles/ggnn.dir/main.cpp.o"
+  "/home/cocoa/GNN/GRU/GPU_GGNNC++/main.cpp" "/home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles/ggnn.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 
@@ -16,8 +16,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/CMakeFiles/CuMatrix.dir/DependInfo.cmake"
-  "/home/cocoa/GNN/GPU_GGNNC++/Matrix/CMakeFiles/matrix.dir/DependInfo.cmake"
+  "/home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/CMakeFiles/CuMatrix.dir/DependInfo.cmake"
+  "/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/CMakeFiles/matrix.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

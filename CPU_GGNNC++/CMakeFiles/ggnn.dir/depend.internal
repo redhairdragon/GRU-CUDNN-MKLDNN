@@ -4,11 +4,13 @@
 CMakeFiles/ggnn.dir/main.cpp.o
  /home/cocoa/GNN/GRU/CPU_GGNNC++/Matrix/matrix.hpp
  /home/cocoa/GNN/GRU/CPU_GGNNC++/constants.h
+ /home/cocoa/GNN/GRU/CPU_GGNNC++/example_utils.hpp
  /home/cocoa/GNN/GRU/CPU_GGNNC++/main.cpp
  /usr/local/blas/CBLAS/include/cblas.h
  /usr/local/oneDNN/include/dnnl.h
  /usr/local/oneDNN/include/dnnl.hpp
  /usr/local/oneDNN/include/dnnl_config.h
+ /usr/local/oneDNN/include/dnnl_debug.h
  /usr/local/oneDNN/include/dnnl_threadpool_iface.hpp
  /usr/local/oneDNN/include/dnnl_types.h
  /usr/local/oneDNN/include/dnnl_version.h

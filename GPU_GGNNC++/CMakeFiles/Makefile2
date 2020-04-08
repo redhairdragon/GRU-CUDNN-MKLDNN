@@ -61,10 +61,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GNN/GPU_GGNNC++
+CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/GPU_GGNNC++
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GNN/GPU_GGNNC++
+CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/GPU_GGNNC++
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -129,18 +129,18 @@ Matrix/clean: Matrix/CMakeFiles/matrix.dir/clean
 # Target rules for target CMakeFiles/ggnn.dir
 
 # All Build rule for target.
-CMakeFiles/ggnn.dir/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 CMakeFiles/ggnn.dir/all: Matrix/CMakeFiles/matrix.dir/all
+CMakeFiles/ggnn.dir/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 	$(MAKE) -f CMakeFiles/ggnn.dir/build.make CMakeFiles/ggnn.dir/depend
 	$(MAKE) -f CMakeFiles/ggnn.dir/build.make CMakeFiles/ggnn.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles --progress-num=3,4 "Built target ggnn"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles --progress-num=3,4 "Built target ggnn"
 .PHONY : CMakeFiles/ggnn.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/ggnn.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 6
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/ggnn.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 0
 .PHONY : CMakeFiles/ggnn.dir/rule
 
 # Convenience name for target.
@@ -160,14 +160,14 @@ CMakeFiles/ggnn.dir/clean:
 Matrix/CMakeFiles/matrix.dir/all:
 	$(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/depend
 	$(MAKE) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles --progress-num=5,6 "Built target matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles --progress-num=5,6 "Built target matrix"
 .PHONY : Matrix/CMakeFiles/matrix.dir/all
 
 # Build rule for subdir invocation for target.
 Matrix/CMakeFiles/matrix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 2
 	$(MAKE) -f CMakeFiles/Makefile2 Matrix/CMakeFiles/matrix.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 0
 .PHONY : Matrix/CMakeFiles/matrix.dir/rule
 
 # Convenience name for target.
@@ -187,14 +187,14 @@ Matrix/CMakeFiles/matrix.dir/clean:
 GPU-Computation/CMakeFiles/CuMatrix.dir/all: Matrix/CMakeFiles/matrix.dir/all
 	$(MAKE) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/depend
 	$(MAKE) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GPU_GGNNC++/CMakeFiles --progress-num=1,2 "Built target CuMatrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles --progress-num=1,2 "Built target CuMatrix"
 .PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/all
 
 # Build rule for subdir invocation for target.
 GPU-Computation/CMakeFiles/CuMatrix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/CuMatrix.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GPU_GGNNC++/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GPU_GGNNC++/CMakeFiles 0
 .PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/rule
 
 # Convenience name for target.

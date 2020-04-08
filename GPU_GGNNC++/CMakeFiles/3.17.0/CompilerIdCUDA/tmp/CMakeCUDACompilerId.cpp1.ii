@@ -1,8 +1,8 @@
 # 1 "CMakeCUDACompilerId.cu"
 # 1 "<built-in>"
-# 1 "<命令行>"
+# 1 "<command-line>"
 # 1 "/usr/include/stdc-predef.h" 1 3 4
-# 1 "<命令行>" 2
+# 1 "<command-line>" 2
 # 1 "/opt/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h" 1
 # 61 "/opt/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h"
 #pragma GCC diagnostic push
@@ -21099,7 +21099,7 @@ static __attribute__((deprecated)) __inline__ __attribute__((host)) cudaError_t 
 }
 # 2025 "/opt/cuda/bin/../targets/x86_64-linux/include/cuda_runtime.h"
 #pragma GCC diagnostic pop
-# 1 "<命令行>" 2
+# 1 "<command-line>" 2
 # 1 "CMakeCUDACompilerId.cu"
 # 40 "CMakeCUDACompilerId.cu"
 char const* info_compiler = "INFO" ":" "compiler[" "NVIDIA" "]";

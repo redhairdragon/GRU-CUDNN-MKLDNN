@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.cpp" "/home/cocoa/GNN/GPU_GGNNC++/Matrix/CMakeFiles/matrix.dir/matrix.cpp.o"
+  "/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.cpp" "/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/CMakeFiles/matrix.dir/matrix.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

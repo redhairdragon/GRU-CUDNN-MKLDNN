@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh
+/home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh
 cuda_runtime.h
 -
 cublas_v2.h
-/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/cublas_v2.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cublas_v2.h
 sstream
 -
 chrono
@@ -24,11 +24,11 @@ set
 map
 -
 ../Matrix/matrix.hpp
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.hpp
 cusparse.h
-/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/cusparse.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cusparse.h
 
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/matrix.hpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/matrix.hpp
 cassert
 -
 cmath
@@ -42,11 +42,11 @@ iostream
 iomanip
 -
 cblas.h
-/home/cocoa/GNN/GPU_GGNNC++/Matrix/cblas.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/cblas.h
 
-/home/cocoa/GNN/GPU_GGNNC++/constants.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/constants.h
 
-/home/cocoa/GNN/GPU_GGNNC++/main.cpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/main.cpp
 iostream
 -
 cuda_runtime.h
@@ -54,9 +54,9 @@ cuda_runtime.h
 cudnn.h
 -
 GPU-Computation/cu_matrix.cuh
-/home/cocoa/GNN/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh
+/home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh
 constants.h
-/home/cocoa/GNN/GPU_GGNNC++/constants.h
+/home/cocoa/GNN/GRU/GPU_GGNNC++/constants.h
 
 /opt/cuda/include/builtin_types.h
 device_types.h
