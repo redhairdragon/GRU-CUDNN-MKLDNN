@@ -1,6 +1,7 @@
-#include <iostream>
 #include <cuda_runtime.h>
 #include <cudnn.h>
+#include <algorithm>
+#include <iostream>
 
 #include "GPU-Computation/cu_matrix.cuh"
 #include "constants.h"
@@ -48,7 +49,7 @@ int main() {
     // create&set RNN descriptor
     cudnnRNNDescriptor_t rnnDesc;
     cudnnErrCheck(cudnnCreateRNNDescriptor(&rnnDesc));
-    cudnnSetRNNBiasMode(rnnDesc,CUDNN_RNN_NO_BIAS);
+    cudnnSetRNNBiasMode(rnnDesc, CUDNN_RNN_NO_BIAS);
     // Enable Tensor Core. Sound Cool But (∀ Dim % 8 == 0)
     // cudnnSetRNNMatrixMathType(rnnDesc, CUDNN_TENSOR_OP_MATH);
 
@@ -67,6 +68,11 @@ int main() {
     // // A_v^T -> dim: 2DxD|V| Aggregate edge matrix (sparse)
     // // H Feat Matrix [h1  h2... h|V|] -> dim: D|V|* 1
     Matrix a_v(2 * FEAT_DIM, CHUNK_SIZE, new float[2 * FEAT_DIM * CHUNK_SIZE]);
+    std::generate(&a_v.getData()[0], &a_v.getData()[2 * FEAT_DIM * CHUNK_SIZE],
+                  []() {
+                      static int i = 1;
+                      return 0.01 * i++;
+                  });
     CuMatrix a_v_cuda(a_v, handle);
     cudnnTensorDescriptor_t xDesc[SEQ_LEN];
 
@@ -89,6 +95,8 @@ int main() {
     // h_(t-1)Previous GRU state
     // dhx: for bptt
     Matrix hx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
+    std::generate(&hx.getData()[0], &hx.getData()[FEAT_DIM * CHUNK_SIZE],
+                  []() { return 0.05; });
     Matrix dhx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
     CuMatrix hx_cuda(hx, handle);
     CuMatrix dhx_cuda(dhx, handle);
@@ -117,7 +125,7 @@ int main() {
     size_t weightsSize;
     cudnnGetRNNParamsSize(dnnHandle, rnnDesc, xDesc[0], &weightsSize,
                           CUDNN_DATA_FLOAT);
-    std::cout << "weightsSize: " << weightsSize / 1024. << " KB" << endl;
+    // std::cout << "weightsSize: " << weightsSize / 1024. << " KB" << endl;
     cudnnFilterDescriptor_t wDesc;
     cudnnFilterDescriptor_t dwDesc;
     cudnnCreateFilterDescriptor(&wDesc);
@@ -169,14 +177,14 @@ int main() {
     size_t workSize;
     cudnnGetRNNWorkspaceSize(dnnHandle, rnnDesc, SEQ_LEN, xDesc, &workSize);
     cudaMalloc((void **)&workspace, workSize);
-    cout << "workSize: "<<workSize/1024. <<" KB"<<endl;
+    // cout << "workSize: "<<workSize/1024. <<" KB"<<endl;
 
     void *reserveSpace;  // extra VRAM to save tensors for backprop
     size_t reserveSize;
     cudnnGetRNNTrainingReserveSize(dnnHandle, rnnDesc, SEQ_LEN, xDesc,
                                    &reserveSize);
     cudaMalloc((void **)&reserveSpace, reserveSize);
-    cout << "reserveSize: " << reserveSize / 1024. << " KB" << endl;
+    // cout << "reserveSize: " << reserveSize / 1024. << " KB" << endl;
     // //------------Setup Parameters Done------------
     // //------------------------------------------------------------------------
 
@@ -198,29 +206,25 @@ int main() {
             int filterDimA[3];
             cudnnGetFilterNdDescriptor(linLayerMatDesc, 3, &dataType, &format,
                                        &nbDims, filterDimA);
-            cout<<filterDimA[0] <<" " <<filterDimA[1]<<" "<<filterDimA[2]<<endl; 
+            cout<<filterDimA[0] <<" " <<filterDimA[1]<<" "<<filterDimA[2]<<endl;
 
             //****Here it should copy weights into GPU memory.
-            // initGPUData(
-            //     linLayerMat, filterDimA[0] * filterDimA[1] *
-            // filterDimA[2],
-            //     1.f / (float)(filterDimA[0] * filterDimA[1] *
-            // filterDimA[2]);
+            for(int i=0;i< filterDimA[0]*filterDimA[1]*filterDimA[2];++i){}
 
             cudnnDestroyFilterDescriptor(linLayerMatDesc);
         }
     }
     // //---------------------Forward Setup Done here-----
-    //data request: a_v, hx
-    //data  update: y, hy, reserved
+    // data request: a_v, hx
+    // data  update: y, hy, reserved
     cudnnRNNForwardTraining(dnnHandle, rnnDesc, SEQ_LEN, xDesc, a_v_cuda.devPtr,
                             hxDesc, hx_cuda.devPtr, cxDesc, cx, wDesc, w, yDesc,
                             y_cuda.devPtr, hyDesc, hy_cuda.devPtr, cyDesc, cy,
                             workspace, workSize, reserveSpace, reserveSize);
     // Forward done
 
-    // // --------------Allocating Tensors for Backprop--------------------
-    
+    // --------------Allocating Tensors for Backprop--------------------
+
     cudnnRNNBackwardData(dnnHandle, rnnDesc, SEQ_LEN, yDesc, y_cuda.devPtr,
                          dyDesc, dy_cuda.devPtr, dhyDesc, dhy_cuda.devPtr,
                          dcyDesc, dcy, wDesc, w, hxDesc, hx_cuda.devPtr, cxDesc,
@@ -261,6 +265,6 @@ int main() {
     cudnnDestroy(dnnHandle);
     cudnnDestroyRNNDescriptor(rnnDesc);
     cudnnDestroyDropoutDescriptor(dropoutDesc);
-    cout << "Done\n";
+    // cout << "Done\n";
     return 0;
 }

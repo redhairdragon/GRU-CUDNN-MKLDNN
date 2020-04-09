@@ -47,11 +47,13 @@ cblas.h
 /home/cocoa/GNN/GRU/GPU_GGNNC++/constants.h
 
 /home/cocoa/GNN/GRU/GPU_GGNNC++/main.cpp
-iostream
--
 cuda_runtime.h
 -
 cudnn.h
+-
+algorithm
+-
+iostream
 -
 GPU-Computation/cu_matrix.cuh
 /home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh

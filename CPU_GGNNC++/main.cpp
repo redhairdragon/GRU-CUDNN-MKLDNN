@@ -79,11 +79,20 @@ int main(int argc, char** argv) {
     // x_t according to the GRU formula
     // tnc -> 1, CHUNK, FEAT_DIM
     Matrix a_v(2 * FEAT_DIM, CHUNK_SIZE, new float[2 * FEAT_DIM * CHUNK_SIZE]);
+    std::generate(&a_v.getData()[0], &a_v.getData()[2 * FEAT_DIM * CHUNK_SIZE],
+                  []() {
+                      static int i = 1;
+                      return 0.01 * i++;
+                  });
+    cout << "a_v: " << a_v.str();
     auto src_layer_mem = memory(src_layer_md, engine);
     write_to_dnnl_memory(a_v.getData(), src_layer_mem);
 
     Matrix hx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
     auto src_iter_mem = memory(src_iter_md, engine);
+    std::generate(&hx.getData()[0], &hx.getData()[FEAT_DIM * CHUNK_SIZE],
+                  []() { return 0.05; });
+    cout << "hx: " << hx.str();
     write_to_dnnl_memory(hx.getData(), src_iter_mem);
 
     // y: output which is not used for our case. need to be initialized
@@ -109,6 +118,14 @@ int main(int argc, char** argv) {
     // allocate weight
     auto user_weights_layer_mem = memory(user_weights_layer_md, engine);
     auto user_weights_iter_mem = memory(user_weights_iter_md, engine);
+    std::generate(&weights_W.getData()[0],
+                  &weights_W.getData()[FEAT_DIM * 2 * G * HIDDEN_SIZE],
+                  []() { return 0.03; });
+    // cout << "weights_W: " << weights_W.str();
+    std::generate(&weights_U.getData()[0],
+                  &weights_U.getData()[FEAT_DIM * G * HIDDEN_SIZE],
+                  []() { return 0.04; });
+    // cout << "weights_W: " << weights_U.str();
     write_to_dnnl_memory(weights_W.getData(), user_weights_layer_mem);
     write_to_dnnl_memory(weights_U.getData(), user_weights_iter_mem);
 
@@ -127,7 +144,6 @@ int main(int argc, char** argv) {
             .execute(engine_stream, user_weights_layer_mem,
                      gru_weights_layer_mem);
     }
-
     if (gru_pd.weights_iter_desc() != user_weights_iter_mem.get_desc()) {
         gru_weights_iter_mem = memory(gru_pd.weights_iter_desc(), engine);
         reorder(user_weights_iter_mem, gru_weights_iter_mem)
@@ -136,6 +152,8 @@ int main(int argc, char** argv) {
     }
     Matrix bias(G, FEAT_DIM, new float[G * FEAT_DIM]);
     auto bias_mem = memory(bias_md, engine);
+    std::generate(&bias.getData()[0], &bias.getData()[G * FEAT_DIM],
+                  []() { return 0.001; });
     write_to_dnnl_memory(bias.getData(), bias_mem);
 
     auto workspace_mem = memory(gru_pd.workspace_desc(), engine);
@@ -155,6 +173,11 @@ int main(int argc, char** argv) {
     gru_prim.execute(engine_stream, gru_args);
     engine_stream.wait();
     cout << "Fwd finishes\n";
+    read_from_dnnl_memory(y.getData(), dst_layer_mem);
+    read_from_dnnl_memory(hy.getData(), dst_iter_mem);
+    cout << "y: " << y.str();
+    cout << "hy: " << hy.str();
+
     //-------------------------------Backward
     // Here---------------------------------------
 
@@ -209,34 +232,35 @@ int main(int argc, char** argv) {
         gru_weights_layer_bwd_mem =
             memory(gru_back_pd.weights_layer_desc(), engine);
         reorder(gru_weights_layer_mem, gru_weights_layer_bwd_mem)
-            .execute(engine_stream, gru_weights_layer_mem, gru_weights_layer_bwd_mem);
+            .execute(engine_stream, gru_weights_layer_mem,
+                     gru_weights_layer_bwd_mem);
     }
 
     if (gru_back_pd.weights_iter_desc() != gru_weights_iter_mem.get_desc()) {
         gru_weights_iter_bwd_mem =
             memory(gru_back_pd.weights_iter_desc(), engine);
         reorder(gru_weights_iter_mem, gru_weights_iter_bwd_mem)
-            .execute(engine_stream, gru_weights_iter_mem, gru_weights_iter_bwd_mem);
+            .execute(engine_stream, gru_weights_iter_mem,
+                     gru_weights_iter_bwd_mem);
     }
 
     auto gru_back_prim = gru_backward(gru_back_pd);
     gru_back_prim.execute(
         engine_stream, {{DNNL_ARG_SRC_LAYER, src_layer_mem},
-                 {DNNL_ARG_SRC_ITER, src_iter_mem},
-                 {DNNL_ARG_WEIGHTS_LAYER, gru_weights_layer_bwd_mem},
-                 {DNNL_ARG_WEIGHTS_ITER, gru_weights_iter_bwd_mem},
-                 {DNNL_ARG_BIAS, bias_mem},
-                 {DNNL_ARG_DST_LAYER, dst_layer_mem},
-                 {DNNL_ARG_DST_ITER, dst_iter_mem},
-                 {DNNL_ARG_DIFF_SRC_LAYER, diff_src_layer_mem},
-                 {DNNL_ARG_DIFF_SRC_ITER, diff_dist_iter_mem},
-                 {DNNL_ARG_DIFF_WEIGHTS_LAYER, diff_weights_layer_mem},
-                 {DNNL_ARG_DIFF_WEIGHTS_ITER, diff_weights_iter_mem},
-                 {DNNL_ARG_DIFF_BIAS, diff_bias_mem},
-                 {DNNL_ARG_DIFF_DST_LAYER, diff_dst_layer_mem},
-                 {DNNL_ARG_DIFF_DST_ITER, diff_dist_iter_mem},
-                 {DNNL_ARG_WORKSPACE, workspace_mem}});
+                        {DNNL_ARG_SRC_ITER, src_iter_mem},
+                        {DNNL_ARG_WEIGHTS_LAYER, gru_weights_layer_bwd_mem},
+                        {DNNL_ARG_WEIGHTS_ITER, gru_weights_iter_bwd_mem},
+                        {DNNL_ARG_BIAS, bias_mem},
+                        {DNNL_ARG_DST_LAYER, dst_layer_mem},
+                        {DNNL_ARG_DST_ITER, dst_iter_mem},
+                        {DNNL_ARG_DIFF_SRC_LAYER, diff_src_layer_mem},
+                        {DNNL_ARG_DIFF_SRC_ITER, diff_dist_iter_mem},
+                        {DNNL_ARG_DIFF_WEIGHTS_LAYER, diff_weights_layer_mem},
+                        {DNNL_ARG_DIFF_WEIGHTS_ITER, diff_weights_iter_mem},
+                        {DNNL_ARG_DIFF_BIAS, diff_bias_mem},
+                        {DNNL_ARG_DIFF_DST_LAYER, diff_dst_layer_mem},
+                        {DNNL_ARG_DIFF_DST_ITER, diff_dist_iter_mem},
+                        {DNNL_ARG_WORKSPACE, workspace_mem}});
     engine_stream.wait();
     cout << "Bwd finishes\n";
-
 }
