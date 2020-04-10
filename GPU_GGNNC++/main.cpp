@@ -147,6 +147,9 @@ int main() {
     // anyway (required by function)
     Matrix y(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
     Matrix dy(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
+    std::generate(&dy.getData()[0],
+                  &dy.getData()[CHUNK_SIZE * HIDDEN_SIZE],
+                  []() { return 0.05; });
     CuMatrix y_cuda(y, handle);
     CuMatrix dy_cuda(dy, handle);
     cudnnTensorDescriptor_t yDesc[SEQ_LEN];
@@ -166,6 +169,9 @@ int main() {
     // dhy: for backprop
     Matrix hy(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
     Matrix dhy(CHUNK_SIZE, HIDDEN_SIZE, new float[CHUNK_SIZE * HIDDEN_SIZE]);
+    std::generate(&dhy.getData()[0],
+                  &dhy.getData()[CHUNK_SIZE * HIDDEN_SIZE],
+                  []() { return 0.06; });
     CuMatrix hy_cuda(hy, handle);
     CuMatrix dhy_cuda(dhy, handle);
     cudnnTensorDescriptor_t hyDesc;
@@ -271,6 +277,47 @@ int main() {
                             hxDesc, hx_cuda.devPtr, yDesc, y_cuda.devPtr,
                             workspace, workSize, dwDesc, dw, reserveSpace,
                             reserveSize);
+
+    for (int layer = 0; layer < LAYER_NUM; layer++) {
+        for (int linLayerID = 0; linLayerID < numLinearLayers; linLayerID++) {
+            cudnnFilterDescriptor_t linLayerMatDesc;
+            cudnnCreateFilterDescriptor(&linLayerMatDesc);
+            float *linLayerMat;
+
+            cudnnGetRNNLinLayerMatrixParams(
+                dnnHandle, rnnDesc, layer, xDesc[0], dwDesc, dw, linLayerID,
+                linLayerMatDesc, (void **)&linLayerMat);
+
+            cudnnDataType_t dataType;
+            cudnnTensorFormat_t format;
+            int nbDims;
+            int filterDimA[3];
+            cudnnGetFilterNdDescriptor(linLayerMatDesc, 3, &dataType, &format,
+                                       &nbDims, filterDimA);
+            //****Here it should copy weights into GPU memory.
+            vector<float> v(filterDimA[0] * filterDimA[1] * filterDimA[2]);
+            cudaDeviceSynchronize();
+            cudaErrCheck(cudaMemcpy( v.data(), linLayerMat,
+                                    v.size() * sizeof(float),
+                                    cudaMemcpyDeviceToHost));
+            if(linLayerID<3) cout<<"dW: \n";
+            else cout<<"dU: \n";
+            for(unsigned i = 0;i< v.size();++i)
+                cout<< v[i]<<" ";
+            cout<<endl;
+            cudnnDestroyFilterDescriptor(linLayerMatDesc);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
 
     // Destroy Every Cuda-Related
     cudnnDestroyTensorDescriptor(cxDesc);
