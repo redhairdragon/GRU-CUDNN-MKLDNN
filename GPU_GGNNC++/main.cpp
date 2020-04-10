@@ -51,7 +51,7 @@ int main() {
     // create&set RNN descriptor
     cudnnRNNDescriptor_t rnnDesc;
     cudnnErrCheck(cudnnCreateRNNDescriptor(&rnnDesc));
-    cudnnSetRNNBiasMode(rnnDesc, CUDNN_RNN_SINGLE_INP_BIAS);
+    cudnnSetRNNBiasMode(rnnDesc, CUDNN_RNN_NO_BIAS);
     // Enable Tensor Core. Sound Cool But (∀ Dim % 8 == 0)
     // cudnnSetRNNMatrixMathType(rnnDesc, CUDNN_TENSOR_OP_MATH);
 
@@ -98,7 +98,7 @@ int main() {
     // dhx: for bptt
     Matrix hx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
     std::generate(&hx.getData()[0], &hx.getData()[FEAT_DIM * CHUNK_SIZE],
-                  []() { return 0.05; });
+                  []() { return 0.1; });
     Matrix dhx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
     CuMatrix hx_cuda(hx, handle);
     CuMatrix dhx_cuda(dhx, handle);
@@ -208,38 +208,38 @@ int main() {
             int filterDimA[3];
             cudnnGetFilterNdDescriptor(linLayerMatDesc, 3, &dataType, &format,
                                        &nbDims, filterDimA);
-            // cout << filterDimA[0] << " ";
-            // cout << filterDimA[1] << " ";
-            // cout << filterDimA[2] << endl;
+            cout << filterDimA[0] << " ";
+            cout << filterDimA[1] << " ";
+            cout << filterDimA[2] << endl;
             //****Here it should copy weights into GPU memory.
             vector<float> v(filterDimA[0] * filterDimA[1] * filterDimA[2]);
-            if (layer < 3)
-                std::fill(v.begin(), v.end(), 0.03);
+            if (linLayerID < 3)
+                std::fill(v.begin(), v.end(), 0.2);
             else
-                std::fill(v.begin(), v.end(), 0.04);
+                std::fill(v.begin(), v.end(), 0.1);
             cudaDeviceSynchronize();
             cudaErrCheck(cudaMemcpy(linLayerMat, v.data(),
                                     v.size() * sizeof(float),
                                     cudaMemcpyHostToDevice));
             cudnnDestroyFilterDescriptor(linLayerMatDesc);
 
-            // set bias
-            cudnnFilterDescriptor_t linLayerBiasDesc;
-            cudnnErrCheck(cudnnCreateFilterDescriptor(&linLayerBiasDesc));
-            float *linLayerBias;
-            cudnnErrCheck(cudnnGetRNNLinLayerBiasParams(
-                dnnHandle, rnnDesc, layer, xDesc[0], wDesc, w, linLayerID,
-                linLayerBiasDesc, (void **)&linLayerBias));
+            // // set bias
+            // cudnnFilterDescriptor_t linLayerBiasDesc;
+            // cudnnErrCheck(cudnnCreateFilterDescriptor(&linLayerBiasDesc));
+            // float *linLayerBias;
+            // cudnnErrCheck(cudnnGetRNNLinLayerBiasParams(
+            //     dnnHandle, rnnDesc, layer, xDesc[0], wDesc, w, linLayerID,
+            //     linLayerBiasDesc, (void **)&linLayerBias));
 
-            cudnnErrCheck(cudnnGetFilterNdDescriptor(
-                linLayerBiasDesc, 3, &dataType, &format, &nbDims, filterDimA));
-            vector<float> b(filterDimA[0] * filterDimA[1] * filterDimA[2]);
-            std::fill(b.begin(), b.end(), 0.001);
-            cudaErrCheck(cudaMemcpy(linLayerBias, b.data(),
-                                    b.size() * sizeof(float),
-                                    cudaMemcpyHostToDevice));
-            // cout <<filterDimA[0] <<" "<< filterDimA[1] <<" "<< filterDimA[2]<<endl;
-            cudnnErrCheck(cudnnDestroyFilterDescriptor(linLayerBiasDesc));
+            // cudnnErrCheck(cudnnGetFilterNdDescriptor(
+            //     linLayerBiasDesc, 3, &dataType, &format, &nbDims, filterDimA));
+            // vector<float> b(filterDimA[0] * filterDimA[1] * filterDimA[2]);
+            // std::fill(b.begin(), b.end(), 0.000);
+            // cudaErrCheck(cudaMemcpy(linLayerBias, b.data(),
+            //                         b.size() * sizeof(float),
+            //                         cudaMemcpyHostToDevice));
+            // // cout <<filterDimA[0] <<" "<< filterDimA[1] <<" "<< filterDimA[2]<<endl;
+            // cudnnErrCheck(cudnnDestroyFilterDescriptor(linLayerBiasDesc));
         }
     }
 

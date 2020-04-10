@@ -63,17 +63,17 @@ int main(int argc, char** argv) {
     auto gru_weights_iter_md = memory::desc(u_dims, dt::f32, tag::any);
     auto user_weights_layer_md = memory::desc(w_dims, dt::f32, tag::ldigo);
     auto user_weights_iter_md = memory::desc(u_dims, dt::f32, tag::ldigo);
-    auto bias_md = memory::desc({L, D, G, C}, dt::f32, tag::ldgo);
+    auto bias_md = memory::desc({L, D, G+1, C}, dt::f32, tag::ldgo);
     auto dst_layer_md = memory::desc(dst_dims, dt::f32, tag::tnc);
     auto dst_iter_md = memory::desc(hx_dims, dt::f32, tag::ldnc);
 
     // allocate descriptors
-    auto gru_desc = gru_forward::desc(
+    auto gru_desc = lbr_gru_forward::desc(
         prop_kind::forward_training, rnn_direction::unidirectional_left2right,
         src_layer_md, src_iter_md, gru_weights_layer_md, gru_weights_iter_md,
         bias_md, dst_layer_md, dst_iter_md);
     // Create primitive descriptor.
-    auto gru_pd = gru_forward::primitive_desc(gru_desc, engine);
+    auto gru_pd = lbr_gru_forward::primitive_desc(gru_desc, engine);
 
     // ***************Allocate Matrices***************************
     // x_t according to the GRU formula
@@ -91,7 +91,7 @@ int main(int argc, char** argv) {
     Matrix hx(FEAT_DIM, CHUNK_SIZE, new float[FEAT_DIM * CHUNK_SIZE]);
     auto src_iter_mem = memory(src_iter_md, engine);
     std::generate(&hx.getData()[0], &hx.getData()[FEAT_DIM * CHUNK_SIZE],
-                  []() { return 0.05; });
+                  []() { return 0.1; });
     cout << "hx: " << hx.str();
     write_to_dnnl_memory(hx.getData(), src_iter_mem);
 
@@ -119,12 +119,18 @@ int main(int argc, char** argv) {
     auto user_weights_layer_mem = memory(user_weights_layer_md, engine);
     auto user_weights_iter_mem = memory(user_weights_iter_md, engine);
     std::generate(&weights_W.getData()[0],
+                  &weights_W.getData()[FEAT_DIM * 2 * 1 * HIDDEN_SIZE],
+                  []() { return 0.2; });
+    std::generate(&weights_W.getData()[FEAT_DIM * 2 * 1 * HIDDEN_SIZE],
                   &weights_W.getData()[FEAT_DIM * 2 * G * HIDDEN_SIZE],
-                  []() { return 0.03; });
+                  []() { return 0.2; });
     // cout << "weights_W: " << weights_W.str();
     std::generate(&weights_U.getData()[0],
+                  &weights_U.getData()[FEAT_DIM * 1 * HIDDEN_SIZE],
+                  []() { return 0.1; });
+    std::generate(&weights_U.getData()[FEAT_DIM * 1 * HIDDEN_SIZE],
                   &weights_U.getData()[FEAT_DIM * G * HIDDEN_SIZE],
-                  []() { return 0.04; });
+                  []() { return 0.1; });
     // cout << "weights_W: " << weights_U.str();
     write_to_dnnl_memory(weights_W.getData(), user_weights_layer_mem);
     write_to_dnnl_memory(weights_U.getData(), user_weights_iter_mem);
@@ -152,13 +158,15 @@ int main(int argc, char** argv) {
     }
     Matrix bias(G, FEAT_DIM, new float[G * FEAT_DIM]);
     auto bias_mem = memory(bias_md, engine);
-    std::generate(&bias.getData()[0], &bias.getData()[G * FEAT_DIM],
-                  []() { return 0.001; });
+    std::generate(&bias.getData()[0], &bias.getData()[1 * FEAT_DIM],
+                  []() { return -0.000; });
+    std::generate(&bias.getData()[1 * FEAT_DIM], &bias.getData()[G * FEAT_DIM],
+                  []() { return 0.000; });
     write_to_dnnl_memory(bias.getData(), bias_mem);
 
     auto workspace_mem = memory(gru_pd.workspace_desc(), engine);
 
-    auto gru_prim = gru_forward(gru_pd);
+    auto gru_prim = lbr_gru_forward(gru_pd);
     // Prepare arguments for execution
     std::unordered_map<int, memory> gru_args;
     gru_args.insert({DNNL_ARG_SRC_LAYER, src_layer_mem});
@@ -185,18 +193,18 @@ int main(int argc, char** argv) {
     auto diff_src_iter_md = memory::desc(hx_dims, dt::f32, tag::ldnc);
     auto diff_dst_layer_md = memory::desc(dst_dims, dt::f32, tag::tnc);
     auto diff_dst_iter_md = memory::desc(hx_dims, dt::f32, tag::ldnc);
-    auto diff_bias_md = memory::desc({L, D, G, C}, dt::f32, tag::ldgo);
+    auto diff_bias_md = memory::desc({L, D, G+1, C}, dt::f32, tag::ldgo);
     auto diff_gru_weights_layer_md = memory::desc(w_dims, dt::f32, tag::any);
     auto diff_gru_weights_iter_md = memory::desc(u_dims, dt::f32, tag::any);
 
-    auto gru_back_desc = gru_backward::desc(
+    auto gru_back_desc = lbr_gru_backward::desc(
         prop_kind::backward, rnn_direction::unidirectional_left2right,
         src_layer_md, src_iter_md, gru_weights_layer_md, gru_weights_iter_md,
         bias_md, dst_layer_md, dst_iter_md, diff_src_layer_md, diff_src_iter_md,
         diff_gru_weights_layer_md, diff_gru_weights_iter_md, diff_bias_md,
         diff_dst_layer_md, diff_dst_iter_md);
     auto gru_back_pd =
-        gru_backward::primitive_desc(gru_back_desc, engine, gru_pd);
+        lbr_gru_backward::primitive_desc(gru_back_desc, engine, gru_pd);
 
     // dx
     Matrix dx(FEAT_DIM, CHUNK_SIZE, new float[2 * FEAT_DIM * CHUNK_SIZE]());
@@ -244,7 +252,7 @@ int main(int argc, char** argv) {
                      gru_weights_iter_bwd_mem);
     }
 
-    auto gru_back_prim = gru_backward(gru_back_pd);
+    auto gru_back_prim = lbr_gru_backward(gru_back_pd);
     gru_back_prim.execute(
         engine_stream, {{DNNL_ARG_SRC_LAYER, src_layer_mem},
                         {DNNL_ARG_SRC_ITER, src_iter_mem},
