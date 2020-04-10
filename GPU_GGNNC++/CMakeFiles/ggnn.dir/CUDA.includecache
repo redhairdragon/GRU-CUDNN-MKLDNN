@@ -48,16 +48,16 @@ string
 
 /home/cocoa/GNN/GRU/GPU_GGNNC++/constants.h
 
-/home/cocoa/GNN/GRU/GPU_GGNNC++/main.cpp
+/home/cocoa/GNN/GRU/GPU_GGNNC++/main.cu
 cuda_runtime.h
 -
 cudnn.h
 -
+vector
+-
 algorithm
 -
 iostream
--
-vector
 -
 GPU-Computation/cu_matrix.cuh
 /home/cocoa/GNN/GRU/GPU_GGNNC++/GPU-Computation/cu_matrix.cuh

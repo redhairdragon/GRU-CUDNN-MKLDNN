@@ -1,6 +1,5 @@
 #ifndef __MATRIX_HPP__
 #define __MATRIX_HPP__
-
 #include <cassert>
 #include <cmath>
 #include <memory>
@@ -8,6 +7,7 @@
 #include <iostream>
 #include <iomanip> 
 #include "cblas.h"
+#include <string>
 
 #define FeatType float
 /**

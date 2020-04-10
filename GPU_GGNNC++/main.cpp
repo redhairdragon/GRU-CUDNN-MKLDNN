@@ -1,7 +1,9 @@
 #include <cuda_runtime.h>
 #include <cudnn.h>
+
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 #include "GPU-Computation/cu_matrix.cuh"
 #include "constants.h"
@@ -49,7 +51,7 @@ int main() {
     // create&set RNN descriptor
     cudnnRNNDescriptor_t rnnDesc;
     cudnnErrCheck(cudnnCreateRNNDescriptor(&rnnDesc));
-    cudnnSetRNNBiasMode(rnnDesc, CUDNN_RNN_NO_BIAS);
+    cudnnSetRNNBiasMode(rnnDesc, CUDNN_RNN_SINGLE_INP_BIAS);
     // Enable Tensor Core. Sound Cool But (∀ Dim % 8 == 0)
     // cudnnSetRNNMatrixMathType(rnnDesc, CUDNN_TENSOR_OP_MATH);
 
@@ -206,14 +208,41 @@ int main() {
             int filterDimA[3];
             cudnnGetFilterNdDescriptor(linLayerMatDesc, 3, &dataType, &format,
                                        &nbDims, filterDimA);
-            cout<<filterDimA[0] <<" " <<filterDimA[1]<<" "<<filterDimA[2]<<endl;
-
+            // cout << filterDimA[0] << " ";
+            // cout << filterDimA[1] << " ";
+            // cout << filterDimA[2] << endl;
             //****Here it should copy weights into GPU memory.
-            for(int i=0;i< filterDimA[0]*filterDimA[1]*filterDimA[2];++i){}
-
+            vector<float> v(filterDimA[0] * filterDimA[1] * filterDimA[2]);
+            if (layer < 3)
+                std::fill(v.begin(), v.end(), 0.03);
+            else
+                std::fill(v.begin(), v.end(), 0.04);
+            cudaDeviceSynchronize();
+            cudaErrCheck(cudaMemcpy(linLayerMat, v.data(),
+                                    v.size() * sizeof(float),
+                                    cudaMemcpyHostToDevice));
             cudnnDestroyFilterDescriptor(linLayerMatDesc);
+
+            // set bias
+            cudnnFilterDescriptor_t linLayerBiasDesc;
+            cudnnErrCheck(cudnnCreateFilterDescriptor(&linLayerBiasDesc));
+            float *linLayerBias;
+            cudnnErrCheck(cudnnGetRNNLinLayerBiasParams(
+                dnnHandle, rnnDesc, layer, xDesc[0], wDesc, w, linLayerID,
+                linLayerBiasDesc, (void **)&linLayerBias));
+
+            cudnnErrCheck(cudnnGetFilterNdDescriptor(
+                linLayerBiasDesc, 3, &dataType, &format, &nbDims, filterDimA));
+            vector<float> b(filterDimA[0] * filterDimA[1] * filterDimA[2]);
+            std::fill(b.begin(), b.end(), 0.001);
+            cudaErrCheck(cudaMemcpy(linLayerBias, b.data(),
+                                    b.size() * sizeof(float),
+                                    cudaMemcpyHostToDevice));
+            // cout <<filterDimA[0] <<" "<< filterDimA[1] <<" "<< filterDimA[2]<<endl;
+            cudnnErrCheck(cudnnDestroyFilterDescriptor(linLayerBiasDesc));
         }
     }
+
     // //---------------------Forward Setup Done here-----
     // data request: a_v, hx
     // data  update: y, hy, reserved
@@ -221,7 +250,13 @@ int main() {
                             hxDesc, hx_cuda.devPtr, cxDesc, cx, wDesc, w, yDesc,
                             y_cuda.devPtr, hyDesc, hy_cuda.devPtr, cyDesc, cy,
                             workspace, workSize, reserveSpace, reserveSize);
+
     // Forward done
+    cudaDeviceSynchronize();
+    y_cuda.updateMatrixFromGPU();
+    cout << "y: " << y_cuda.str();
+    hy_cuda.updateMatrixFromGPU();
+    cout << "hy: " << hy_cuda.str();
 
     // --------------Allocating Tensors for Backprop--------------------
 

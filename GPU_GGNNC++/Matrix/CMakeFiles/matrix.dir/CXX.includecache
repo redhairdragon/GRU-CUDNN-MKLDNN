@@ -25,6 +25,8 @@ iomanip
 -
 cblas.h
 /home/cocoa/GNN/GRU/GPU_GGNNC++/Matrix/cblas.h
+string
+-
 
 /usr/local/blas/CBLAS/include/cblas.h
 stddef.h
