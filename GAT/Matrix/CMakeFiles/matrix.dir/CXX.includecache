@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/cocoa/GAT/Matrix/matrix.cpp
+matrix.hpp
+/home/cocoa/GAT/Matrix/matrix.hpp
+
+/home/cocoa/GAT/Matrix/matrix.hpp
+cassert
+-
+cmath
+-
+memory
+-
+sstream
+-
+iostream
+-
+iomanip
+-
+cblas.h
+-
+string
+-
+
+/usr/local/blas/CBLAS/include/cblas.h
+stddef.h
+-
+

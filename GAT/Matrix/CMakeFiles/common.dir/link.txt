@@ -1,0 +1,1 @@
+/usr/bin/c++ -fPIC -O3 -DNDEBUG  -shared -Wl,-soname,libcommon.so -o libcommon.so CMakeFiles/common.dir/matrix.cpp.o /usr/local/blas/OpenBLAS/lib/libopenblas.a /usr/local/blas/CBLAS/lib/cblas_LINUX.a 

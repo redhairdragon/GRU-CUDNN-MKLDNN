@@ -1,0 +1,1 @@
+/opt/cuda/bin/g++ -fPIC   -shared -Wl,-soname,libmatrix.so -o libmatrix.so CMakeFiles/matrix.dir/matrix.cpp.o  /usr/local/blas/OpenBLAS/lib/libopenblas.a /usr/local/blas/CBLAS/lib/cblas_LINUX.a -lpthread 

@@ -1,0 +1,22 @@
+{
+    "files.associations": {
+        "*.cu": "cpp",
+        "*.cuh": "cpp",
+        "memory": "cpp",
+        "future": "cpp",
+        "istream": "cpp",
+        "functional": "cpp",
+        "array": "cpp",
+        "hash_map": "cpp",
+        "deque": "cpp",
+        "list": "cpp",
+        "string": "cpp",
+        "unordered_map": "cpp",
+        "unordered_set": "cpp",
+        "vector": "cpp",
+        "string_view": "cpp",
+        "initializer_list": "cpp",
+        "*.tcc": "cpp",
+        "ostream": "cpp"
+    }
+}

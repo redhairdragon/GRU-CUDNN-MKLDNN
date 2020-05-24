@@ -1,0 +1,3 @@
+/root/GGNNC++/Matrix/CMakeFiles/rebuild_cache.dir
+/root/GGNNC++/Matrix/CMakeFiles/common.dir
+/root/GGNNC++/Matrix/CMakeFiles/edit_cache.dir
