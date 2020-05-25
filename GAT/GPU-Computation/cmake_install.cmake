@@ -1,4 +1,4 @@
-# Install script for directory: /home/cocoa/GAT/GPU-Computation
+# Install script for directory: /home/cocoa/GNN/GRU/GAT/GPU-Computation
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

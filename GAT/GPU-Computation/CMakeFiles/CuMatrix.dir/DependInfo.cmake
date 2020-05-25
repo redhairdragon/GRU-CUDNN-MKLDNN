@@ -5,7 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # Targets to which this target links.
 set(CMAKE_TARGET_LINKED_INFO_FILES
-  "/home/cocoa/GAT/Matrix/CMakeFiles/matrix.dir/DependInfo.cmake"
+  "/home/cocoa/GNN/GRU/GAT/Matrix/CMakeFiles/matrix.dir/DependInfo.cmake"
   )
 
 # Fortran module output directory.

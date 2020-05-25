@@ -68,10 +68,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GAT
+CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/GAT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GAT
+CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/GAT
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,14 +100,14 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /home/cocoa/GAT && $(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GAT/CMakeFiles /home/cocoa/GAT/GPU-Computation/CMakeFiles/progress.marks
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GAT/CMakeFiles 0
+	cd /home/cocoa/GNN/GRU/GAT && $(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/progress.marks
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/clean
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/clean
 .PHONY : clean
 
 # The main clean target
@@ -117,22 +117,22 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/preinstall
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/preinstall
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /home/cocoa/GAT && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/cocoa/GNN/GRU/GAT && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
 # Convenience name for target.
 GPU-Computation/CMakeFiles/CuMatrix.dir/rule:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/CuMatrix.dir/rule
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/CuMatrix.dir/rule
 .PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/rule
 
 # Convenience name for target.
@@ -142,12 +142,12 @@ CuMatrix: GPU-Computation/CMakeFiles/CuMatrix.dir/rule
 
 # fast build rule for target.
 CuMatrix/fast:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/build
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/build
 .PHONY : CuMatrix/fast
 
 # Convenience name for target.
 GPU-Computation/CMakeFiles/ComputingUnit.dir/rule:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
 
 # Convenience name for target.
@@ -157,7 +157,7 @@ ComputingUnit: GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
 
 # fast build rule for target.
 ComputingUnit/fast:
-	cd /home/cocoa/GAT && $(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make GPU-Computation/CMakeFiles/ComputingUnit.dir/build
+	cd /home/cocoa/GNN/GRU/GAT && $(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make GPU-Computation/CMakeFiles/ComputingUnit.dir/build
 .PHONY : ComputingUnit/fast
 
 # Help Target
@@ -181,6 +181,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /home/cocoa/GAT && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/cocoa/GNN/GRU/GAT && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

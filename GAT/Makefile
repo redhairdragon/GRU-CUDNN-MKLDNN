@@ -68,10 +68,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GAT
+CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/GAT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GAT
+CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/GAT
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -100,9 +100,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GAT/CMakeFiles /home/cocoa/GAT/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles /home/cocoa/GNN/GRU/GAT/CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GAT/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
 .PHONY : all
 
 # The main clean target

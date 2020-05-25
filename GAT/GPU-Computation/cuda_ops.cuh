@@ -5,6 +5,16 @@ struct activateDerivative_functor {
     }
 };
 
+struct mulVec {
+    mulVec(float* vec_start_, int vec_len_) : vec_start(vec_start_),vec_len(vec_len_) {}
+    __host__ __device__ float operator()(const float &x, int idx) const {
+        return x*vec_start[idx%vec_len];
+    }
+    float* vec_start;
+    int vec_len;
+};
+
+
 struct leakyRelu_functor {
     leakyRelu_functor(float coef_) : coef(coef_) {}
     __host__ __device__ float operator()(const float &x) const {
@@ -12,6 +22,15 @@ struct leakyRelu_functor {
     }
     float coef;
 };
+
+struct leakyReluPrime_functor {
+    leakyReluPrime_functor(float coef_) : coef(coef_) {}
+    __host__ __device__ float operator()(const float &x) const {
+        return x > 0 ? 1 : coef;
+    }
+    float coef;
+};
+
 
 struct inverse_functor {
     inverse_functor() {}

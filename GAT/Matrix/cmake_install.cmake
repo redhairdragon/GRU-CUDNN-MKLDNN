@@ -1,4 +1,4 @@
-# Install script for directory: /home/cocoa/GAT/Matrix
+# Install script for directory: /home/cocoa/GNN/GRU/GAT/Matrix
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
