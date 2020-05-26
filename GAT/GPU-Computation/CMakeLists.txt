@@ -1,6 +1,6 @@
 enable_language(CUDA)
 FIND_PACKAGE(CUDA REQUIRED)
-find_library(CUDNN NAME libcudnn.so.7 HINTS /usr/local/cuda/lib64/)
+find_library(CUDNN NAME libcudnn.so.7 HINTS /usr/local/cuda/lib64/ /opt/cuda/targets/x86_64-linux/lib/)
 include_directories(${CUDA_INCLUDE_DIRS})
 cuda_add_library(CuMatrix SHARED "cu_matrix.cu")
 set_property(TARGET CuMatrix PROPERTY POSITION_INDEPENDENT_CODE ON)

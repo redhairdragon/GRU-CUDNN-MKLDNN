@@ -64,10 +64,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/GAT
+CMAKE_SOURCE_DIR = /home/cocoa/GRU-CUDNN-MKLDNN/GAT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/GAT
+CMAKE_BINARY_DIR = /home/cocoa/GRU-CUDNN-MKLDNN/GAT
 
 #=============================================================================
 # Directory level rules for the build root directory
@@ -96,8 +96,8 @@ clean: GPU-Computation/clean
 # Directory level rules for directory GPU-Computation
 
 # Recursive "all" directory target.
-GPU-Computation/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 GPU-Computation/all: GPU-Computation/CMakeFiles/ComputingUnit.dir/all
+GPU-Computation/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 
 .PHONY : GPU-Computation/all
 
@@ -107,8 +107,8 @@ GPU-Computation/preinstall:
 .PHONY : GPU-Computation/preinstall
 
 # Recursive "clean" directory target.
-GPU-Computation/clean: GPU-Computation/CMakeFiles/CuMatrix.dir/clean
 GPU-Computation/clean: GPU-Computation/CMakeFiles/ComputingUnit.dir/clean
+GPU-Computation/clean: GPU-Computation/CMakeFiles/CuMatrix.dir/clean
 
 .PHONY : GPU-Computation/clean
 
@@ -135,18 +135,18 @@ Matrix/clean: Matrix/CMakeFiles/matrix.dir/clean
 
 # All Build rule for target.
 CMakeFiles/gat.dir/all: Matrix/CMakeFiles/matrix.dir/all
-CMakeFiles/gat.dir/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 CMakeFiles/gat.dir/all: GPU-Computation/CMakeFiles/ComputingUnit.dir/all
+CMakeFiles/gat.dir/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gat.dir/build.make CMakeFiles/gat.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gat.dir/build.make CMakeFiles/gat.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=5,6 "Built target gat"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=5,6 "Built target gat"
 .PHONY : CMakeFiles/gat.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/gat.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/gat.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 0
 .PHONY : CMakeFiles/gat.dir/rule
 
 # Convenience name for target.
@@ -166,14 +166,14 @@ CMakeFiles/gat.dir/clean:
 Matrix/CMakeFiles/matrix.dir/all:
 	$(MAKE) $(MAKESILENT) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/depend
 	$(MAKE) $(MAKESILENT) -f Matrix/CMakeFiles/matrix.dir/build.make Matrix/CMakeFiles/matrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=7,8 "Built target matrix"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=7,8 "Built target matrix"
 .PHONY : Matrix/CMakeFiles/matrix.dir/all
 
 # Build rule for subdir invocation for target.
 Matrix/CMakeFiles/matrix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 Matrix/CMakeFiles/matrix.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 0
 .PHONY : Matrix/CMakeFiles/matrix.dir/rule
 
 # Convenience name for target.
@@ -187,33 +187,6 @@ Matrix/CMakeFiles/matrix.dir/clean:
 .PHONY : Matrix/CMakeFiles/matrix.dir/clean
 
 #=============================================================================
-# Target rules for target GPU-Computation/CMakeFiles/CuMatrix.dir
-
-# All Build rule for target.
-GPU-Computation/CMakeFiles/CuMatrix.dir/all: Matrix/CMakeFiles/matrix.dir/all
-	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/depend
-	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=3,4 "Built target CuMatrix"
-.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/all
-
-# Build rule for subdir invocation for target.
-GPU-Computation/CMakeFiles/CuMatrix.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 4
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/CuMatrix.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
-.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/rule
-
-# Convenience name for target.
-CuMatrix: GPU-Computation/CMakeFiles/CuMatrix.dir/rule
-
-.PHONY : CuMatrix
-
-# clean rule for target.
-GPU-Computation/CMakeFiles/CuMatrix.dir/clean:
-	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/clean
-.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/clean
-
-#=============================================================================
 # Target rules for target GPU-Computation/CMakeFiles/ComputingUnit.dir
 
 # All Build rule for target.
@@ -221,14 +194,14 @@ GPU-Computation/CMakeFiles/ComputingUnit.dir/all: Matrix/CMakeFiles/matrix.dir/a
 GPU-Computation/CMakeFiles/ComputingUnit.dir/all: GPU-Computation/CMakeFiles/CuMatrix.dir/all
 	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make GPU-Computation/CMakeFiles/ComputingUnit.dir/depend
 	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make GPU-Computation/CMakeFiles/ComputingUnit.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=1,2 "Built target ComputingUnit"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=1,2 "Built target ComputingUnit"
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/all
 
 # Build rule for subdir invocation for target.
 GPU-Computation/CMakeFiles/ComputingUnit.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 6
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/ComputingUnit.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GNN/GRU/GAT/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 0
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
 
 # Convenience name for target.
@@ -240,6 +213,33 @@ ComputingUnit: GPU-Computation/CMakeFiles/ComputingUnit.dir/rule
 GPU-Computation/CMakeFiles/ComputingUnit.dir/clean:
 	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make GPU-Computation/CMakeFiles/ComputingUnit.dir/clean
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/clean
+
+#=============================================================================
+# Target rules for target GPU-Computation/CMakeFiles/CuMatrix.dir
+
+# All Build rule for target.
+GPU-Computation/CMakeFiles/CuMatrix.dir/all: Matrix/CMakeFiles/matrix.dir/all
+	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/depend
+	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=3,4 "Built target CuMatrix"
+.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/all
+
+# Build rule for subdir invocation for target.
+GPU-Computation/CMakeFiles/CuMatrix.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 4
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 GPU-Computation/CMakeFiles/CuMatrix.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles 0
+.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/rule
+
+# Convenience name for target.
+CuMatrix: GPU-Computation/CMakeFiles/CuMatrix.dir/rule
+
+.PHONY : CuMatrix
+
+# clean rule for target.
+GPU-Computation/CMakeFiles/CuMatrix.dir/clean:
+	$(MAKE) $(MAKESILENT) -f GPU-Computation/CMakeFiles/CuMatrix.dir/build.make GPU-Computation/CMakeFiles/CuMatrix.dir/clean
+.PHONY : GPU-Computation/CMakeFiles/CuMatrix.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

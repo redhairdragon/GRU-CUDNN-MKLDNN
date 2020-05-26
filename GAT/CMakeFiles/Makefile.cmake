@@ -71,6 +71,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/gat.dir/DependInfo.cmake"
   "Matrix/CMakeFiles/matrix.dir/DependInfo.cmake"
-  "GPU-Computation/CMakeFiles/CuMatrix.dir/DependInfo.cmake"
   "GPU-Computation/CMakeFiles/ComputingUnit.dir/DependInfo.cmake"
+  "GPU-Computation/CMakeFiles/CuMatrix.dir/DependInfo.cmake"
   )

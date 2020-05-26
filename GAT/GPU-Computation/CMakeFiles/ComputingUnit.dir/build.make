@@ -63,10 +63,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/cocoa/GNN/GRU/GAT
+CMAKE_SOURCE_DIR = /home/cocoa/GRU-CUDNN-MKLDNN/GAT
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/cocoa/GNN/GRU/GAT
+CMAKE_BINARY_DIR = /home/cocoa/GRU-CUDNN-MKLDNN/GAT
 
 # Include any dependencies generated for this target.
 include GPU-Computation/CMakeFiles/ComputingUnit.dir/depend.make
@@ -106,6 +106,7 @@ GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.c
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/cuda_runtime_api.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/cuda_surface_types.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/cuda_texture_types.h
+GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/cudnn.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/cusparse.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/device_atomic_functions.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /opt/cuda/include/device_atomic_functions.hpp
@@ -763,7 +764,6 @@ GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.c
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/bits/wordsize.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/bits/xopen_lim.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/ctype.h
-GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/cudnn.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/endian.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/errno.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/include/features.h
@@ -944,16 +944,16 @@ GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.c
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: /usr/local/blas/CBLAS/include/cblas.h
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o.cmake
 GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o: GPU-Computation/comp_unit.cu
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o"
-	cd /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir && /usr/bin/cmake -E make_directory /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//.
-	cd /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//./ComputingUnit_generated_comp_unit.cu.o -D generated_cubin_file:STRING=/home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//./ComputingUnit_generated_comp_unit.cu.o.cubin.txt -P /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//ComputingUnit_generated_comp_unit.cu.o.cmake
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building NVCC (Device) object GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o"
+	cd /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir && /usr/bin/cmake -E make_directory /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//.
+	cd /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir && /usr/bin/cmake -D verbose:BOOL=$(VERBOSE) -D build_configuration:STRING= -D generated_file:STRING=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//./ComputingUnit_generated_comp_unit.cu.o -D generated_cubin_file:STRING=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//./ComputingUnit_generated_comp_unit.cu.o.cubin.txt -P /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir//ComputingUnit_generated_comp_unit.cu.o.cmake
 
 # Object files for target ComputingUnit
 ComputingUnit_OBJECTS =
 
 # External object files for target ComputingUnit
 ComputingUnit_EXTERNAL_OBJECTS = \
-"/home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o"
+"/home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o"
 
 GPU-Computation/libComputingUnit.so: GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o
 GPU-Computation/libComputingUnit.so: GPU-Computation/CMakeFiles/ComputingUnit.dir/build.make
@@ -963,14 +963,14 @@ GPU-Computation/libComputingUnit.so: GPU-Computation/libCuMatrix.so
 GPU-Computation/libComputingUnit.so: /opt/cuda/lib64/libcublas.so
 GPU-Computation/libComputingUnit.so: /opt/cuda/lib64/libcudart_static.a
 GPU-Computation/libComputingUnit.so: /usr/lib/librt.so
-GPU-Computation/libComputingUnit.so: /usr/lib/libcudnn.so.7
+GPU-Computation/libComputingUnit.so: /opt/cuda/targets/x86_64-linux/lib/libcudnn.so.7
 GPU-Computation/libComputingUnit.so: /opt/cuda/lib64/libcusparse.so
 GPU-Computation/libComputingUnit.so: Matrix/libmatrix.so
 GPU-Computation/libComputingUnit.so: /usr/local/blas/OpenBLAS/lib/libopenblas.a
 GPU-Computation/libComputingUnit.so: /usr/local/blas/CBLAS/lib/cblas_LINUX.a
 GPU-Computation/libComputingUnit.so: GPU-Computation/CMakeFiles/ComputingUnit.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cocoa/GNN/GRU/GAT/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libComputingUnit.so"
-	cd /home/cocoa/GNN/GRU/GAT/GPU-Computation && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ComputingUnit.dir/link.txt --verbose=$(VERBOSE)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/cocoa/GRU-CUDNN-MKLDNN/GAT/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX shared library libComputingUnit.so"
+	cd /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/ComputingUnit.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
 GPU-Computation/CMakeFiles/ComputingUnit.dir/build: GPU-Computation/libComputingUnit.so
@@ -978,10 +978,10 @@ GPU-Computation/CMakeFiles/ComputingUnit.dir/build: GPU-Computation/libComputing
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/build
 
 GPU-Computation/CMakeFiles/ComputingUnit.dir/clean:
-	cd /home/cocoa/GNN/GRU/GAT/GPU-Computation && $(CMAKE_COMMAND) -P CMakeFiles/ComputingUnit.dir/cmake_clean.cmake
+	cd /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation && $(CMAKE_COMMAND) -P CMakeFiles/ComputingUnit.dir/cmake_clean.cmake
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/clean
 
 GPU-Computation/CMakeFiles/ComputingUnit.dir/depend: GPU-Computation/CMakeFiles/ComputingUnit.dir/ComputingUnit_generated_comp_unit.cu.o
-	cd /home/cocoa/GNN/GRU/GAT && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cocoa/GNN/GRU/GAT /home/cocoa/GNN/GRU/GAT/GPU-Computation /home/cocoa/GNN/GRU/GAT /home/cocoa/GNN/GRU/GAT/GPU-Computation /home/cocoa/GNN/GRU/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/cocoa/GRU-CUDNN-MKLDNN/GAT && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/cocoa/GRU-CUDNN-MKLDNN/GAT /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation /home/cocoa/GRU-CUDNN-MKLDNN/GAT /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation /home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/CMakeFiles/ComputingUnit.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : GPU-Computation/CMakeFiles/ComputingUnit.dir/depend
 

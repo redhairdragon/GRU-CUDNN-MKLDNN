@@ -1,4 +1,4 @@
-# Install script for directory: /home/cocoa/GNN/GRU/GAT
+# Install script for directory: /home/cocoa/GRU-CUDNN-MKLDNN/GAT
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,8 +39,8 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
-  include("/home/cocoa/GNN/GRU/GAT/Matrix/cmake_install.cmake")
-  include("/home/cocoa/GNN/GRU/GAT/GPU-Computation/cmake_install.cmake")
+  include("/home/cocoa/GRU-CUDNN-MKLDNN/GAT/Matrix/cmake_install.cmake")
+  include("/home/cocoa/GRU-CUDNN-MKLDNN/GAT/GPU-Computation/cmake_install.cmake")
 
 endif()
 
@@ -52,5 +52,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/cocoa/GNN/GRU/GAT/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/cocoa/GRU-CUDNN-MKLDNN/GAT/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

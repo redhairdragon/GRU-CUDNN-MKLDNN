@@ -6,11 +6,11 @@
 
 #IncludeRegexTransform: 
 
-/home/cocoa/GNN/GRU/GAT/Matrix/matrix.cpp
+/home/cocoa/GRU-CUDNN-MKLDNN/GAT/Matrix/matrix.cpp
 matrix.hpp
-/home/cocoa/GNN/GRU/GAT/Matrix/matrix.hpp
+/home/cocoa/GRU-CUDNN-MKLDNN/GAT/Matrix/matrix.hpp
 
-/home/cocoa/GNN/GRU/GAT/Matrix/matrix.hpp
+/home/cocoa/GRU-CUDNN-MKLDNN/GAT/Matrix/matrix.hpp
 cassert
 -
 cmath
